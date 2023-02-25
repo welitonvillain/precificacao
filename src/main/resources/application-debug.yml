@@ -1,0 +1,8 @@
+logging:
+  level:
+    br.com.angeloni: DEBUG
+    org.apache.http.wire: DEBUG
+    org.zalando.logbook: TRACE
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE

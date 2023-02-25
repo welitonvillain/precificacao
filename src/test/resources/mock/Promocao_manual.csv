@@ -1,0 +1,6 @@
+ Tipo promocao ; Data Inicio ; Data Fim ; Produto (cod) ; Quantidade a pagar ; Produtos Doados (cod) ; Quantidade do produto doado ; Valor produto doado ; Percentual Desc. ; Lojas ; Sobrescrever
+L;2019-07-24T10:10:00Z;2019-08-30T10:10:00Z;3778239;3;3778239;1;;;24,26;Não
+U;2019-07-24T10:10:00Z;2019-08-30T10:10:00Z;4317915;2;4317915;1;;50;24,26;Não
+PV;2019-07-24T10:10:00Z;2019-08-30T10:10:00Z;2273179;2;9999;1;0,01;;24,26;Não
+B;2019-07-24T10:10:00Z;2019-08-30T10:10:00Z;2546839;1;9999;1;;;24,26;Não
+P;2019-07-24T10:10:00Z;2019-08-30T10:10:00Z;4062001;3;4062001;;14,6;;24,26;Não

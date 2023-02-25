@@ -1,0 +1,17 @@
+{
+  "dsPrecificacao":{
+    "ttPrecificacao":[
+      {
+        "idUnidade":"8",
+        "dataInicio":"2020/02/03",
+        "dataFim":"2020/02/28",
+        "ttPrecificacaoItem":[
+          {
+            "idProduto": "4396919",
+            "quantidadeDisponivel": 200
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Resultado</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Resultado da Importação</h1>
+    <br/>
+    <div class="row">
+        <div class="col-md-12">
+            <p>ID: <a th:href="@{/result(id=${auditoria.stringId})}" th:text="${auditoria.stringId}"></a></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <textarea class="form-control" rows="25" readonly="true" th:text="${auditoria.resultado}"></textarea>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+spring:
+  main:
+    banner-mode: "off"
+  mvc:
+    favicon:
+      enabled: false
+  devtools:
+    livereload:
+      enabled: false
+  jackson:
+    default-property-inclusion: non_null
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1MB
+      max-request-size: 1MB
+#  datasource:
+#    url: jdbc:oracle:thin:@localhost:1521:xe
+#    username: system
+#    password: oracle
+#    driver-class-name: oracle.jdbc.driver.OracleDriver
+  datasource:
+    url: jdbc:oracle:thin:@oradb01hlg.angeloni.com.br:1521:datazen
+    username: angpreco
+    password: lote0411
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
+        dialect: org.hibernate.dialect.Oracle10gDialect
+# Usado para gerar o DDL das entidades
+#      javax:
+#        persistence:
+#          schema-generation:
+#            create-source: metadata
+#            scripts:
+#              action: create
+#              create-target: ddl.sql
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+
+server:
+  port: 8087
+
+logging:
+  file: /u/JavaPrecLote/logs/precos.log
+  level:
+    br.com.angeloni: DEBUG
+    org.apache.http.wire: DEBUG
+    #org.zalando.logbook: TRACE
+    #org.springframework.security: DEBUG
+    #org.hibernate.SQL: DEBUG
+    #org.hibernate.type.descriptor.sql: TRACE
+
+erp:
+  api:
+    base-url: "http://pasoehlg.angeloni.com.br:8080"
+    precos-uri: "/rest/precificacao/controle/preco/v01"
+
+atg:
+  base-url: "http://atg-qa-merchan-server.angeloni.com.br:7010"
+
+ldap:
+  url: "ldap://angeloni.com.br:389"
+  base-dn: "dc=angeloni,dc=com,dc=br"
+  bind-dn: "CN=admin"
+  username: "weliton.villain@angeloni.com.br"
+  password: "Hornet18!"
+  user-filter: "(&(objectCategory=person)(sAMAccountName={0})(memberOf=CN=Acesso_Precificacao_via_planilha,OU=Precificacao_via_planilha,OU=Grupos,OU=Angeloni,DC=angeloni,DC=com,DC=br))"
+  admins: "admin"

@@ -1,0 +1,21 @@
+erp:
+  api:
+    base-url: "http://pasoe.angeloni.com.br:8080"
+
+atg:
+  base-url: "http://atg-merchan-server.angeloni.com.br:7010"
+
+ldap:
+  url: "ldap://angeloni.com.br:389"
+  username: "CN=admin precificacaoviaplanilha,OU=usuarios,OU=DataCenter,OU=Angeloni,DC=angeloni,DC=com,DC=br"
+  password: "43vnFtwCJMb"
+  admins: "admin.precificacao"
+
+spring:
+  datasource:
+    url: "jdbc:oracle:thin:@datazendb.angeloni.com.br:1521:datazen"
+    username: "angpreco"
+    password: "lote0311"
+jpa:
+  hibernate:
+    ddl-auto: validate

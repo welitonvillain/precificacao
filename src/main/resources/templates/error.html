@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Erro</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1 th:text="*{httpStatus != null}? *{httpStatus} : 'Erro'">Erro</h1>
+    <strong><p th:utext="*{errorMessage != null}? *{errorMessage} : 'Erro inesperado'">Erro inesperado</p></strong>
+</div>
+</body>
+</html>

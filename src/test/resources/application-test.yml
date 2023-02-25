@@ -1,0 +1,4 @@
+logging:
+  file: null
+  level:
+    br.com.angeloni: DEBUG

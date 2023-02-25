@@ -1,0 +1,331 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8-b13937 svn-revision#13942. -->
+<xsd:schema xmlns:ns0="http://ws.integration.angeloni.com.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://ws.integration.angeloni.com.br/">
+    <xsd:complexType name="itemPriceListInfo">
+        <xsd:sequence>
+            <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="margin" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="price" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="priceLevel" type="ns0:priceLevelInfo" minOccurs="0" maxOccurs="unbounded"
+                         nillable="true"/>
+            <xsd:element name="promotionId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="skuId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getXPayYInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="buyQuantity" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="erpId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="finalDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="finalPrices" type="ns0:virtualPackPriceInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ignoreFrozen" type="xsd:boolean"/>
+                    <xsd:element name="initialDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="largeIcon" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="mainProductId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="prices" type="ns0:virtualPackPriceInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="sites" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="skuId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="smallIcon" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="spendQuantity" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="storeIds" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="userId" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="getXPayYListInfo">
+        <xsd:sequence>
+            <xsd:element name="items" type="ns0:getXPayYInfo" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="virtualPackServiceListInfo">
+        <xsd:sequence>
+            <xsd:element name="items" type="ns0:virtualPackServiceInfo" minOccurs="0" maxOccurs="unbounded"
+                         nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="giftsInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="buyQuantity" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="erpId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="finalDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="giftSku" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="incrementItens" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="initialDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="largeIcon" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="longDescription" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="mainSku" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="sites" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="skuGiftQuantity" type="xsd:int" minOccurs="0"/>
+                    <xsd:element name="smallIcon" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="buyXOrMorePayYListInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="items" type="ns0:buyXOrMorePayYInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="setVirtualPackResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cbcGenericInfo" abstract="true"/>
+    <xsd:complexType name="virtualPackPriceInfo">
+        <xsd:sequence>
+            <xsd:element name="price" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="priceList" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setBuyXOrMorePayYResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setGifts">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:giftsListInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ResultItemErrorInfo">
+        <xsd:sequence>
+            <xsd:element name="message" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="violations" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="key" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setBulkPriceResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setGetXPayY">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:getXPayYListInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setPromotionLastItemResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="buyXOrMorePayYInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="finalDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="finalPrices" type="ns0:priceListPromotionInfo" minOccurs="0"
+                                 maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ignoreFrozen" type="xsd:boolean"/>
+                    <xsd:element name="initialDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="mainProductId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="price" type="ns0:priceListPromotionInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="sites" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="userId" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="virtualPackServiceInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="buyQuantity" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="closenessQualifierImageUrl" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="closenessQualifierMessage" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="finalDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="initialDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="largeIcon" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="mainProductId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="replaceValue" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="sites" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="skus" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="smallIcon" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="storeIds" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="userType" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="virtualPackErp" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="virtualPackMessage" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="promotionLastItemInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="buyQuantity" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="discount" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="erpId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="finalDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="finalPrices" type="ns0:virtualPackPriceInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ignoreFrozen" type="xsd:boolean"/>
+                    <xsd:element name="initialDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="largeIcon" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="mainProductId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="prices" type="ns0:virtualPackPriceInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="sites" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="skuId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="smallIcon" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="storeIds" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="typeDiscount" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="useSelo" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="userId" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="promotionLastItemListInfo">
+        <xsd:sequence>
+            <xsd:element name="items" type="ns0:promotionLastItemInfo" minOccurs="0" maxOccurs="unbounded"
+                         nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setBulkPrice">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:bulkPriceListInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setPromotionLastItem">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:promotionLastItemListInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="bulkPriceInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="finalDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="finalPrices" type="ns0:priceListPromotionInfo" minOccurs="0"
+                                 maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ignoreFrozen" type="xsd:boolean"/>
+                    <xsd:element name="initialDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="mainProductId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="price" type="ns0:priceListPromotionInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="sites" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="userId" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="priceListPromotionInfo">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ignoreFrozen" type="xsd:boolean"/>
+            <xsd:element name="itemPriceListInfo" type="ns0:itemPriceListInfo" minOccurs="0"/>
+            <xsd:element name="userId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setGiftsResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setGetXPayYResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="giftsListInfo">
+        <xsd:sequence>
+            <xsd:element name="items" type="ns0:giftsInfo" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setVirtualPack">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:virtualPackServiceListInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setBuyXOrMorePayY">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:buyXOrMorePayYListInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="priceLevelInfo">
+        <xsd:sequence>
+            <xsd:element name="price" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="quantity" type="xsd:long" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ResultMessageErrorInfo">
+        <xsd:sequence>
+            <xsd:element name="message" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="bulkPriceListInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="items" type="ns0:bulkPriceInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:element name="setBulkPriceResponse" type="ns0:setBulkPriceResponse"/>
+    <xsd:element name="ResultItemErrorInfo" type="ns0:ResultItemErrorInfo"/>
+    <xsd:element name="setGetXPayY" type="ns0:setGetXPayY"/>
+    <xsd:element name="setPromotionLastItemResponse" type="ns0:setPromotionLastItemResponse"/>
+    <xsd:element name="setBulkPrice" type="ns0:setBulkPrice"/>
+    <xsd:element name="setPromotionLastItem" type="ns0:setPromotionLastItem"/>
+    <xsd:element name="setVirtualPackResponse" type="ns0:setVirtualPackResponse"/>
+    <xsd:element name="setGetXPayYResponse" type="ns0:setGetXPayYResponse"/>
+    <xsd:element name="setGiftsResponse" type="ns0:setGiftsResponse"/>
+    <xsd:element name="setBuyXOrMorePayYResponse" type="ns0:setBuyXOrMorePayYResponse"/>
+    <xsd:element name="setGifts" type="ns0:setGifts"/>
+    <xsd:element name="setVirtualPack" type="ns0:setVirtualPack"/>
+    <xsd:element name="setBuyXOrMorePayY" type="ns0:setBuyXOrMorePayY"/>
+    <xsd:element name="ResultMessageErrorInfo" type="ns0:ResultMessageErrorInfo"/>
+</xsd:schema>

@@ -1,0 +1,61 @@
+dn: dc=angeloni,dc=com,dc=br
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: angeloni
+
+dn: ou=Angeloni,dc=angeloni,dc=com,dc=br
+objectclass: top
+objectclass: organizationalUnit
+ou: Angeloni
+
+dn: ou=DataCenter,ou=Angeloni,dc=angeloni,dc=com,dc=br
+objectclass: top
+objectclass: organizationalUnit
+ou: DataCenter
+
+dn: ou=usuarios,ou=DataCenter,ou=Angeloni,dc=angeloni,dc=com,dc=br
+objectclass: top
+objectclass: organizationalUnit
+ou: usuarios
+
+dn: ou=Grupos,ou=Angeloni,dc=angeloni,dc=com,dc=br
+objectclass: top
+objectclass: organizationalUnit
+ou: Grupos
+
+dn: ou=Precificacao_via_planilha,ou=Grupos,ou=Angeloni,dc=angeloni,dc=com,dc=br
+objectclass: top
+objectclass: organizationalUnit
+ou: Precificacao_via_planilha
+
+dn: cn=Acesso_Precificacao_via_planilha,ou=Precificacao_via_planilha,ou=Grupos,ou=Angeloni,dc=angeloni,dc=com,dc=br
+objectclass: top
+objectclass: group
+objectCategory: Group
+cn: Acesso_Precificacao_via_planilha
+sAMAccountName: Acesso_Precificacao_via_planilha
+
+dn: cn=admin,ou=usuarios,ou=DataCenter,ou=Angeloni,dc=angeloni,dc=com,dc=br
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: user
+objectCategory: Person
+cn: admin
+sn: admin
+sAMAccountName: admin
+userPassword: admin
+memberOf: CN=Acesso_Precificacao_via_planilha,OU=Precificacao_via_planilha,OU=Grupos,OU=Angeloni,DC=angeloni,DC=com,DC=br
+
+dn: cn=teste,ou=Angeloni,dc=angeloni,dc=com,dc=br
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: user
+objectCategory: Person
+cn: teste
+sn: teste
+sAMAccountName: teste
+userPassword: teste
+memberOf: CN=Acesso_Precificacao_via_planilha,OU=Precificacao_via_planilha,OU=Grupos,OU=Angeloni,DC=angeloni,DC=com,DC=br

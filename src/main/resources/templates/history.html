@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Histórico</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Histórico de Importação</h1>
+    <br/>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Data Início</th>
+            <th>Data Fim</th>
+            <th>Usuário</th>
+            <th>IP</th>
+            <th>Arquivo</th>
+            <th>Resultado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="auditoria, rowStat: ${lista}">
+            <td th:text="${#temporals.format(auditoria.dataHoraInicio, 'dd/MM/yyyy HH:mm:ss')}"></td>
+            <td th:text="${#temporals.format(auditoria.dataHoraFim, 'dd/MM/yyyy HH:mm:ss')}"></td>
+            <td th:text="${auditoria.usuario}"></td>
+            <td th:text="${auditoria.ip}"></td>
+            <td>
+                <a th:href="@{/download(id=${auditoria.stringId})}"><span th:text="${auditoria.nomeArquivo}"></span></a></td>
+            <td>
+                <span th:if="${auditoria.dataHoraFim}">
+                    <a th:href="@{/result(id=${auditoria.stringId})}" class="btn btn-sm btn-default"><i class="glyphicon glyphicon-search"></i></a><span th:text="${auditoria.sucesso} ? ' Sucesso' : ' Erro'"></span>
+                </span>
+                <span th:unless="${auditoria.dataHoraFim}">
+                    Processando...
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

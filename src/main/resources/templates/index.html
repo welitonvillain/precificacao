@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <title>Importar</title>
+</head>
+<body>
+<div layout:fragment="content" th:remove="tag">
+    <h1>Importar Planilha de Preços</h1>
+
+    <form method="post" action="/upload" enctype="multipart/form-data">
+        <br/>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" id="file-info" class="form-control" placeholder="Selecione um arquivo..."
+                       disabled="true" required>
+            </div>
+            <div class="col-md-2">
+                <label class="btn btn-default btn-block">
+                    <i class="glyphicon glyphicon-file"></i> Selecionar Arquivo
+                    <input type="file" name="file" hidden onchange="fileChange(this)">
+                </label>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-2">
+                <button type="submit" id="upload" class="btn btn-primary btn-block" disabled="true" onclick="waitingDialog.show('Processando, aguarde...');">
+                    <i class="glyphicon glyphicon-upload"></i> Enviar Arquivo
+                </button>
+            </div>
+        </div>
+    </form>
+    <script>
+        function fileChange(file) {
+            $('#file-info').val($(file).val().replace(/\\/g, '/').replace(/.*\//, ''));
+            $('#upload').prop('disabled', false);
+        }
+    </script>
+</div>
+</body>
+</html>

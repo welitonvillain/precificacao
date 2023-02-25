@@ -1,0 +1,826 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.2.8-b13937 svn-revision#13942. -->
+<xsd:schema xmlns:ns0="http://ws.integration.angeloni.com.br/" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://ws.integration.angeloni.com.br/">
+    <xsd:complexType name="itemPriceListInfo">
+        <xsd:sequence>
+            <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="margin" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="price" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="priceLevel" type="ns0:priceLevelInfo" minOccurs="0" maxOccurs="unbounded"
+                         nillable="true"/>
+            <xsd:element name="promotionId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="skuId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuLoose">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuLooseInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getLongDescriptionBySite">
+        <xsd:sequence>
+            <xsd:element name="productId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="siteId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncListIngredientsResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuDotzInfo">
+        <xsd:sequence>
+            <xsd:element name="dotz" type="ns0:dotzInfo" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="skuId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="productFeature">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="key" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="skuRecipeInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="setEAN">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuEanInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncBeverageSku">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuBeverageInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="dotzInfo">
+        <xsd:sequence>
+            <xsd:element name="finalDate" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="initialDate" type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="storeId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="value" type="xsd:int" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="longDescriptionInfo">
+        <xsd:sequence>
+            <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="description" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="site" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProductRecipe">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:productRecipeInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cbcMediaSetInfo">
+        <xsd:sequence>
+            <xsd:element name="largeUrl" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="mediumUrl" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="smallUrl" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="thumnailUrl" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncPamhpletResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuLinkInfo">
+        <xsd:sequence>
+            <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="item" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="quantity" type="xsd:long" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncLongDescriptionBySite">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:longDescriptionInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setMaxQuantityBuyResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ingredientInfo">
+        <xsd:sequence>
+            <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="item" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="quantity" type="xsd:long" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="cbcGenericInfo" abstract="true"/>
+    <xsd:complexType name="productSkuMediasInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="skus" type="ns0:skuMediaSetInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuWithdrawStore">
+        <xsd:sequence>
+            <xsd:element name="skuWithdrawStore" type="ns0:skuWithdrawStoreInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="listIngredientsInfo">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="ingredients" type="ns0:ingredientInfo" minOccurs="0" maxOccurs="unbounded"
+                         nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuMaximumBuyInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="maxQuantityBuy" type="xsd:int"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="productRecipeInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="category" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="childrenSkuList" type="xsd:string" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="directions" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="enabled" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="features" type="ns0:productFeature" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ingredients" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="syncFeatureResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="color" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="manufPartNum" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="quantityUnitMeasure" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="stamps" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="unit" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="voltage" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="whiteLine" type="xsd:boolean"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="skuEanInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="ean13" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuSalesCost">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuSalesCostInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getLongDescriptionBySiteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProductCategoryResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getPriceResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:priceInfo" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncPackageDimensionsResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuMediasSet">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuMediaSetInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="ResultItemErrorInfo">
+        <xsd:sequence>
+            <xsd:element name="message" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="violations" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="key" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProductRecipesInSku">
+        <xsd:sequence>
+            <xsd:element name="skuProductRecipes" type="ns0:skuProductsRecipeInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuBundleLinkInfo">
+        <xsd:sequence>
+            <xsd:element name="bundleLinks" type="ns0:skuLinkInfo" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+            <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncBeverageProductResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncBeverageSkuResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuSalesCostByStoreResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuSalesCostInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="salesCost" type="xsd:double" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="syncPriceListResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:resultPriceListInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuMediasSetResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuBeverageInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="manufPartNum" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="quantityUnitMeasure" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="unit" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="syncPriceList">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:priceListInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncPackageDimensions">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:packageInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setMaxQuantityBuy">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuMaximumBuyInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuBundleLinks">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuBundleLinkInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuLooseResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuRecipe">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuRecipeInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="priceInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="bulkPrice" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="cmv" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="complexCampaign" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="freezing" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="price" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="skuId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="tieredPrice" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="priceListInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ignoreFrozen" type="xsd:boolean"/>
+                    <xsd:element name="items" type="ns0:itemPriceListInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="processingDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="userId" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="ResultMessageErrorInfo">
+        <xsd:sequence>
+            <xsd:element name="message" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuLooseInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:skuInfo">
+                <xsd:sequence/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="getLastChangedProductsResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProductRecipesInSkuResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProductCategory">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:productCategoryInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncLongDescriptionBySiteResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuRecipeResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProductResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncDotzResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getPrice">
+        <xsd:sequence>
+            <xsd:element name="skuId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="priceListId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="moreInformations" type="xsd:boolean" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getProductNameResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="ns0:productSkuMediasInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="setEANResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProductLooseResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="productCategoryInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="categoryId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="skuWithdrawStoreInfo">
+        <xsd:sequence>
+            <xsd:element name="disabledWithdrawDSL" type="xsd:boolean" minOccurs="0"/>
+            <xsd:element name="skuId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="withdrawInStore" type="xsd:boolean" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuProductsRecipeInfo">
+        <xsd:sequence>
+            <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="productsRecipe" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProduct">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:productInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSku">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncPamhplet">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:pamphletInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultPriceListInfo">
+        <xsd:sequence>
+            <xsd:element name="integrationId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="itemsNotOK" type="ns0:resultItemPriceListInfo" minOccurs="0" maxOccurs="unbounded"
+                         nillable="true"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncBeverageProduct">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:productBeverageInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="productBeverageInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="allowDescriptionInOrder" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="category" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="childrenSkuList" type="xsd:string" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="diameter" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="dsl" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ean13" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="enabled" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="features" type="ns0:productFeature" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="height" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="length" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="maximumPurchaseQuantity" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                                    <xsd:complexType>
+                                        <xsd:sequence>
+                                            <xsd:element name="key" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="value" type="xsd:int" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="minimumPurchaseQuantity" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="multiplierPurchaseQuantity" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="weight" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="width" type="xsd:double" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="syncFeature">
+        <xsd:sequence>
+            <xsd:element name="productFeature" type="ns0:productFeature" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="productId" type="xsd:string" minOccurs="0"/>
+            <xsd:element name="replaceFeatures" type="xsd:boolean" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncListIngredients">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:listIngredientsInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="pamphletInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="creationDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="expirationDate" type="xsd:dateTime" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="image" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="products" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="sites" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+                    <xsd:element name="startDate" type="xsd:dateTime" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuSalesCostResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="skuMediaSetInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="medias" type="ns0:mediaSetInfo" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="productInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="allowDescriptionInOrder" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="brand" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="category" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="childrenSkuList" type="xsd:string" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="color" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="diameter" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="displayName" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="dsl" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="ean13" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="enabled" type="xsd:boolean" minOccurs="0"/>
+                    <xsd:element name="groupBy" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="height" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="length" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="maximumPurchaseQuantity" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                                    <xsd:complexType>
+                                        <xsd:sequence>
+                                            <xsd:element name="key" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="value" type="xsd:int" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="minimumPurchaseQuantity" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="multiplierPurchaseQuantity" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="packageDepth" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="packageHeight" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="packageLength" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="packageWeight" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="packageWidth" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="similarity" type="xsd:string" minOccurs="0" maxOccurs="unbounded"
+                                 nillable="true"/>
+                    <xsd:element name="type" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="weight" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="width" type="xsd:double" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuSalesCostByStore">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuSalesCostByStoreInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getProductName">
+        <xsd:sequence>
+            <xsd:element name="productId" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProductRecipeResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="resultItemPriceListInfo">
+        <xsd:sequence>
+            <xsd:element name="item" type="ns0:itemPriceListInfo" minOccurs="0"/>
+            <xsd:element name="violations" minOccurs="0">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:complexType>
+                                <xsd:sequence>
+                                    <xsd:element name="key" type="xsd:string" minOccurs="0"/>
+                                    <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                                </xsd:sequence>
+                            </xsd:complexType>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncProductLoose">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:productLooseInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="getLastChangedProducts">
+        <xsd:sequence>
+            <xsd:element name="date" type="xsd:dateTime" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuWithdrawStoreResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncSkuBundleLinksResponse">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="packageInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="action" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="packageDepth" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="packageHeight" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="packageLength" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="packageWeight" type="xsd:double" minOccurs="0"/>
+                    <xsd:element name="packageWidth" type="xsd:double" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="productLooseInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:productInfo">
+                <xsd:sequence/>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="mediaSetInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcMediaSetInfo">
+                <xsd:sequence>
+                    <xsd:element name="facebookUrl" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="nutritionFactsImage" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="zoomUrl" type="xsd:string" minOccurs="0"/>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="skuSalesCostByStoreInfo">
+        <xsd:complexContent>
+            <xsd:extension base="ns0:cbcGenericInfo">
+                <xsd:sequence>
+                    <xsd:element name="id" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="salesCostByStore" minOccurs="0">
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="entry" minOccurs="0" maxOccurs="unbounded">
+                                    <xsd:complexType>
+                                        <xsd:sequence>
+                                            <xsd:element name="key" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="value" type="xsd:double" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+    <xsd:complexType name="priceLevelInfo">
+        <xsd:sequence>
+            <xsd:element name="price" type="xsd:double" minOccurs="0"/>
+            <xsd:element name="quantity" type="xsd:long" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="syncDotz">
+        <xsd:sequence>
+            <xsd:element name="dataRequest" type="ns0:skuDotzInfo" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="syncSkuLoose" type="ns0:syncSkuLoose"/>
+    <xsd:element name="getLongDescriptionBySite" type="ns0:getLongDescriptionBySite"/>
+    <xsd:element name="syncListIngredientsResponse" type="ns0:syncListIngredientsResponse"/>
+    <xsd:element name="setEAN" type="ns0:setEAN"/>
+    <xsd:element name="syncBeverageSku" type="ns0:syncBeverageSku"/>
+    <xsd:element name="syncProductRecipe" type="ns0:syncProductRecipe"/>
+    <xsd:element name="syncPamhpletResponse" type="ns0:syncPamhpletResponse"/>
+    <xsd:element name="syncLongDescriptionBySite" type="ns0:syncLongDescriptionBySite"/>
+    <xsd:element name="setMaxQuantityBuyResponse" type="ns0:setMaxQuantityBuyResponse"/>
+    <xsd:element name="syncSkuWithdrawStore" type="ns0:syncSkuWithdrawStore"/>
+    <xsd:element name="syncFeatureResponse" type="ns0:syncFeatureResponse"/>
+    <xsd:element name="syncSkuSalesCost" type="ns0:syncSkuSalesCost"/>
+    <xsd:element name="getLongDescriptionBySiteResponse" type="ns0:getLongDescriptionBySiteResponse"/>
+    <xsd:element name="syncProductCategoryResponse" type="ns0:syncProductCategoryResponse"/>
+    <xsd:element name="getPriceResponse" type="ns0:getPriceResponse"/>
+    <xsd:element name="syncPackageDimensionsResponse" type="ns0:syncPackageDimensionsResponse"/>
+    <xsd:element name="syncSkuMediasSet" type="ns0:syncSkuMediasSet"/>
+    <xsd:element name="ResultItemErrorInfo" type="ns0:ResultItemErrorInfo"/>
+    <xsd:element name="syncProductRecipesInSku" type="ns0:syncProductRecipesInSku"/>
+    <xsd:element name="syncBeverageProductResponse" type="ns0:syncBeverageProductResponse"/>
+    <xsd:element name="syncSkuResponse" type="ns0:syncSkuResponse"/>
+    <xsd:element name="syncBeverageSkuResponse" type="ns0:syncBeverageSkuResponse"/>
+    <xsd:element name="syncSkuSalesCostByStoreResponse" type="ns0:syncSkuSalesCostByStoreResponse"/>
+    <xsd:element name="syncPriceListResponse" type="ns0:syncPriceListResponse"/>
+    <xsd:element name="syncSkuMediasSetResponse" type="ns0:syncSkuMediasSetResponse"/>
+    <xsd:element name="syncPriceList" type="ns0:syncPriceList"/>
+    <xsd:element name="syncPackageDimensions" type="ns0:syncPackageDimensions"/>
+    <xsd:element name="setMaxQuantityBuy" type="ns0:setMaxQuantityBuy"/>
+    <xsd:element name="syncSkuBundleLinks" type="ns0:syncSkuBundleLinks"/>
+    <xsd:element name="syncSkuLooseResponse" type="ns0:syncSkuLooseResponse"/>
+    <xsd:element name="syncSkuRecipe" type="ns0:syncSkuRecipe"/>
+    <xsd:element name="ResultMessageErrorInfo" type="ns0:ResultMessageErrorInfo"/>
+    <xsd:element name="getLastChangedProductsResponse" type="ns0:getLastChangedProductsResponse"/>
+    <xsd:element name="syncProductRecipesInSkuResponse" type="ns0:syncProductRecipesInSkuResponse"/>
+    <xsd:element name="syncProductCategory" type="ns0:syncProductCategory"/>
+    <xsd:element name="syncLongDescriptionBySiteResponse" type="ns0:syncLongDescriptionBySiteResponse"/>
+    <xsd:element name="syncSkuRecipeResponse" type="ns0:syncSkuRecipeResponse"/>
+    <xsd:element name="syncProductResponse" type="ns0:syncProductResponse"/>
+    <xsd:element name="syncDotzResponse" type="ns0:syncDotzResponse"/>
+    <xsd:element name="getPrice" type="ns0:getPrice"/>
+    <xsd:element name="getProductNameResponse" type="ns0:getProductNameResponse"/>
+    <xsd:element name="setEANResponse" type="ns0:setEANResponse"/>
+    <xsd:element name="syncProductLooseResponse" type="ns0:syncProductLooseResponse"/>
+    <xsd:element name="syncProduct" type="ns0:syncProduct"/>
+    <xsd:element name="syncSku" type="ns0:syncSku"/>
+    <xsd:element name="syncPamhplet" type="ns0:syncPamhplet"/>
+    <xsd:element name="syncBeverageProduct" type="ns0:syncBeverageProduct"/>
+    <xsd:element name="syncFeature" type="ns0:syncFeature"/>
+    <xsd:element name="syncListIngredients" type="ns0:syncListIngredients"/>
+    <xsd:element name="syncSkuSalesCostResponse" type="ns0:syncSkuSalesCostResponse"/>
+    <xsd:element name="syncSkuSalesCostByStore" type="ns0:syncSkuSalesCostByStore"/>
+    <xsd:element name="getProductName" type="ns0:getProductName"/>
+    <xsd:element name="syncProductRecipeResponse" type="ns0:syncProductRecipeResponse"/>
+    <xsd:element name="syncProductLoose" type="ns0:syncProductLoose"/>
+    <xsd:element name="getLastChangedProducts" type="ns0:getLastChangedProducts"/>
+    <xsd:element name="syncSkuWithdrawStoreResponse" type="ns0:syncSkuWithdrawStoreResponse"/>
+    <xsd:element name="syncSkuBundleLinksResponse" type="ns0:syncSkuBundleLinksResponse"/>
+    <xsd:element name="syncDotz" type="ns0:syncDotz"/>
+</xsd:schema>

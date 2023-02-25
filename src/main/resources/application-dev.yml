@@ -1,0 +1,16 @@
+spring:
+  ldap:
+    embedded:
+      ldif: classpath:test-ad.ldif
+      base-dn: dc=angeloni,dc=com,dc=br
+      port: 8389
+      validation:
+        enabled: false
+  thymeleaf:
+    cache: false
+  resources:
+    cache:
+      period: 0
+
+logging:
+  file: null
